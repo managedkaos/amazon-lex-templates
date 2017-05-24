@@ -1,16 +1,16 @@
 ---
 intent: get_breakfast
 utterances:
-    - "I would like to order breakfast"
-    - "What's for breakfast"
-    - "Help me find breakfast"
-    - "breakfast"
+    - I would like to order breakfast
+    - What's for breakfast
+    - Help me find breakfast
+    - breakfast
 slots:
-    - name: "Day_of_week"
-      type: "AMAZON.DayOfWeek"
+    - name: Day_of_week
+      type: AMAZON.DayOfWeek
       prompts:
-          - "What day are you interested in"
-          - "Which day of the week should I check"
+          - What day are you interested in
+          - Which day of the week should I check
           - Is there a day of the week you have in mind
           - What day of the week would you like to check
       max_retries: 2
