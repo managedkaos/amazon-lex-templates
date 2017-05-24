@@ -1,0 +1,50 @@
+---
+intent: get_breakfast
+utterances:
+    - I would like to order breakfast
+    - What's for breakfast
+    - Help me find breakfast
+    - breakfast
+slots:
+    - name: Day_of_week
+      type: AMAZON.DayOfWeek
+      prompts:
+          - What day are you interested in
+          - Which day of the week should I check
+          - Is there a day of the week you have in mind
+          - What day of the week would you like to check
+      max_retries: 2
+      corresponding_utterances:
+          - I'm thinking about {Day_of_week}
+          - Check menus for {Day_of_week}
+          - I'm asking about {Day_of_week}
+          - Check {Day_of_week}
+          - {Day_of_week}
+
+    - name: Cafteria
+      type: Cafterias
+      prompts:
+          - Which cafe menu would you like to check?
+          - Is there a particular cafe you're interested in?
+          - Which cafe would you like for me to check?
+          - Which cafeteria will you be dining in?
+      corresponding_utterances:
+          - I'm going to {Cafeteria}
+          - Can you check {Cafeteria}
+          - Check {Cafeteria}
+          - I would like to go to {Cafeteria}
+          - {Cafeteria}
+
+confirmation_prompt:
+    - confirm:
+      prompts:
+          - Just to confirm, I'll be checking the {Day_of_week} menu at {Cafeteria} for you. Is that correct?
+          - OK, you would like to know what {Cafeteria} is serving on {Day_of_week}, right?
+          - So you want to check the {Day_of_week} menu at {Cafeteria}?
+      max_retries: 3
+
+    - cancel:
+      prompts:
+          - OK!  I won't worry about checking a menu for you now.
+
+fulfillment: return parameters to client
